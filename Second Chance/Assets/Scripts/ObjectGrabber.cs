@@ -9,18 +9,19 @@ public class ObjectGrabber : MonoBehaviour {
 
 	private Rigidbody grabbedObject;
 
+
+	public Rigidbody GetGrabbedObject()
+	{
+		return grabbedObject;
+	}
+
 	public void SetGrabbedObject(Rigidbody rigidObj)
 	{
 		grabbedObject = rigidObj;
-//		grabbedObject.isKinematic = true;
-//		mass = grabbedObject.mass;
-//		grabbedObject.mass = 0;
 	}
 
 	public void DropObject()
 	{
-//		grabbedObject.isKinematic = false;
-//		grabbedObject.mass = mass;
 		grabbedObject.velocity /= TimeShifter.Instance.slowmoCompensation;
 		grabbedObject = null;
 	}
@@ -41,7 +42,7 @@ public class ObjectGrabber : MonoBehaviour {
 			grabbedObject.velocity = (desiredPos - grabbedObject.position) * 10 * TimeShifter.Instance.slowmoCompensation;
 			grabbedObject.angularVelocity = Vector3.zero;
 //			grabbedObject.MovePosition(transform.position + transform.forward * holdingDistance);
-			grabbedObject.MoveRotation(transform.rotation);
+			grabbedObject.transform.rotation = Quaternion.RotateTowards(grabbedObject.transform.rotation,transform.rotation, 720*Time.unscaledDeltaTime);
 		}
 	}
 }
