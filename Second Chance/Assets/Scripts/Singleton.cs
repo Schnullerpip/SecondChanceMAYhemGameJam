@@ -31,8 +31,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 				{
 					_instance = (T) FindObjectOfType(typeof(T));
 
-				    T[] ts = FindObjectsOfType<T>();
-
 					if ( FindObjectsOfType(typeof(T)).Length > 1 )
 					{
 						Debug.LogError("[Singleton] " + typeof(T) + " Something went really wrong " +
