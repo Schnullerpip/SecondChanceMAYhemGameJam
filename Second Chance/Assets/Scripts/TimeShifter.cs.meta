@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 61879e554a54741d1908492e5218ef10
-timeCreated: 1495877466
+timeCreated: 1495890055
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - slowDownMixerGroup: {fileID: 243220895925960698, guid: 3447432eeabee460d99006d99aa8396a,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
