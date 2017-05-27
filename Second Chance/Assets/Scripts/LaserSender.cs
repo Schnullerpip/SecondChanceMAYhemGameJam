@@ -30,6 +30,8 @@ public class LaserSender : MonoBehaviour {
 		while(Physics.Raycast(position,direction,out hit, 1000))
 		{
 			vertices.Add(hit.point);
+
+			//Mirrors and other grabable stuff
 			if(hit.collider.CompareTag("Grabable"))
 			{
 				LaserMirror mirror = hit.collider.GetComponent<LaserMirror>();
@@ -39,6 +41,8 @@ public class LaserSender : MonoBehaviour {
 					particles.transform.rotation = Quaternion.LookRotation(Vector3.Reflect(direction, hit.normal));
 				}
 			}
+
+			//walls, player, laserreceiver and everything else
 			else
 			{
 				particles.transform.position = hit.point;
@@ -47,6 +51,10 @@ public class LaserSender : MonoBehaviour {
 				if(hit.collider.CompareTag("LaserReceiver"))
 				{
 					hit.collider.GetComponent<Sender>().TriggerReceivers();
+				}
+				else if(hit.collider.CompareTag("Player"))
+				{
+					hit.collider.GetComponent<Character>().Die();
 				}
 
 				break;
