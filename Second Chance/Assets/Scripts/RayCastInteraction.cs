@@ -28,6 +28,7 @@ public class RayCastInteraction : MonoBehaviour {
 
 		if(Physics.Raycast(ray, out hit, distance, objectLayerMask))
 		{
+            
 			if(selectedObject != hit.collider.gameObject)
 			{
 				if(selectedObject != null)
@@ -61,7 +62,7 @@ public class RayCastInteraction : MonoBehaviour {
 					}
 					else if(selectedObject.CompareTag("Interactable"))
 					{
-						grabber.GetComponent<Sender>().TriggerReceivers();
+                        selectedObject.GetComponent<AInteractable>().Interact();
 					}
 				}
 			}
