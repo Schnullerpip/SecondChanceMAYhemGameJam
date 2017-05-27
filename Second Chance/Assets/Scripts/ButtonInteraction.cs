@@ -7,6 +7,7 @@ public class ButtonInteraction : AInteractable
 {
     public override void Interact()
     {
+        TimeShifter.Instance.SpeedUp();
         print("Button Pressed!");
         gameObject.GetComponent<Animator>().SetTrigger("Pressed");
         gameObject.GetComponent<Sender>().TriggerReceivers();

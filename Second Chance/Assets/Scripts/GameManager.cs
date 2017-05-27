@@ -46,10 +46,11 @@ public class GameManager : Singleton<GameManager> {
 
 	    if (ran_out_of_time || !player_is_alive)
 	    {
+
             //end game
 	        if (SceneManager.sceneCount < 2)
 	        {
-	            restart_time = Time.time + 4;
+	            restart_time = Time.unscaledTime + 2;
 	            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
 	        }
 

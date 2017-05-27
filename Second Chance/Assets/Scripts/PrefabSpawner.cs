@@ -18,8 +18,14 @@ public class PrefabSpawner : MonoBehaviour
     private int current_pool_idx = 0;
     private int current_item_idx = 0;
 
+    private AudioSource m_AudioSource;
+
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+
+	    m_AudioSource = GetComponent<AudioSource>();
+
         //initially deactivate all the objects in the list
 	    for(int i = 0; i < prefabs.Count; ++i)
 	    {
@@ -43,9 +49,11 @@ public class PrefabSpawner : MonoBehaviour
             List<GameObject> pool = instances[current_pool_idx];
             //go.transform.Translate(transform.position);
 
+	        pool[current_item_idx].transform.rotation = transform.rotation;
             pool[current_item_idx].transform.position = transform.position;
             pool[current_item_idx].GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             pool[current_item_idx].SetActive(true);
+            m_AudioSource.Play();
 
 	        if (++current_item_idx >= pool.Count)
 	        {//repeat from start
