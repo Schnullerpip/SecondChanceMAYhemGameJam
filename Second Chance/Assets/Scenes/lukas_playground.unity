@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1352566113}
   m_Layer: 8
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -361,6 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowDownFactor: 0.1
   transitionSpeed: 1
+  slowmoCompensation: 1
 --- !u!4 &1583195227
 Transform:
   m_ObjectHideFlags: 0
@@ -453,7 +454,7 @@ GameObject:
   - component: {fileID: 1704872329}
   m_Layer: 8
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

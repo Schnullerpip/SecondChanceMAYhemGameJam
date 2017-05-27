@@ -10,7 +10,7 @@ public class TimeShifter : Singleton<TimeShifter> {
 
 	public float transitionSpeed = 0.1f;
 
-	public float slowmoCompensation = 0;
+	public float slowmoCompensation = 1;
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.P))
@@ -41,7 +41,8 @@ public class TimeShifter : Singleton<TimeShifter> {
 		{
 			Time.timeScale -= transitionSpeed * Time.unscaledDeltaTime;
 			Time.fixedDeltaTime = 0.02f * Time.timeScale;
-			yield return null;
+			slowmoCompensation = 1 / Time.timeScale;
+			yield return new WaitForEndOfFrame();
 		}
 
 		Time.timeScale = desiredTimescale;
@@ -55,7 +56,8 @@ public class TimeShifter : Singleton<TimeShifter> {
 		{
 			Time.timeScale += transitionSpeed * Time.unscaledDeltaTime;
 			Time.fixedDeltaTime = 0.02f * Time.timeScale;
-			yield return null;
+			slowmoCompensation = 1 / Time.timeScale;
+			yield return new WaitForEndOfFrame();
 		}
 
 		Time.timeScale = desiredTimescale;

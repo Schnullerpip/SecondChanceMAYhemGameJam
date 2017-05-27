@@ -123,9 +123,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else
             {
-                m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
+                m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime * TimeShifter.Instance.slowmoCompensation;
             }
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
+			m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime * TimeShifter.Instance.slowmoCompensation);
 
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
@@ -146,7 +146,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
             {
                 m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
-                             Time.fixedDeltaTime;
+					Time.fixedDeltaTime  * TimeShifter.Instance.slowmoCompensation;
             }
 
             if (!(m_StepCycle > m_NextStep))
@@ -255,5 +255,5 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
-    }
+	}
 }

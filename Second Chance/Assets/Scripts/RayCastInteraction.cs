@@ -55,7 +55,14 @@ public class RayCastInteraction : MonoBehaviour {
 			{
 				if(selectedObject != null)
 				{
-					grabber.SetGrabbedObject(selectedObject.GetComponent<Rigidbody>());
+					if(selectedObject.CompareTag("Grabable"))
+					{
+						grabber.SetGrabbedObject(selectedObject.GetComponent<Rigidbody>());
+					}
+					else if(selectedObject.CompareTag("Interactable"))
+					{
+						grabber.GetComponent<Sender>().TriggerReceivers();
+					}
 				}
 			}
 		}
