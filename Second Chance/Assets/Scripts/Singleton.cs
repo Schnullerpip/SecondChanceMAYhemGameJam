@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// Be aware this will not prevent a non singleton constructor
@@ -30,9 +31,11 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 				{
 					_instance = (T) FindObjectOfType(typeof(T));
 
+				    T[] ts = FindObjectsOfType<T>();
+
 					if ( FindObjectsOfType(typeof(T)).Length > 1 )
 					{
-						Debug.LogError("[Singleton] Something went really wrong " +
+						Debug.LogError("[Singleton] " + typeof(T) + " Something went really wrong " +
 							" - there should never be more than 1 singleton!" +
 							" Reopening the scene might fix it.");
 						return _instance;

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class TimeShifter : Singleton<TimeShifter> {
 	
@@ -23,6 +24,11 @@ public class TimeShifter : Singleton<TimeShifter> {
 	{
 		startFixedDeltaTime = Time.fixedDeltaTime;
 	}
+
+    void Start()
+    {
+       slowDownMixerGroup = (Resources.Load("AudioMixer") as UnityEngine.Audio.AudioMixer).FindMatchingGroups("SlowDown")[0];
+    }
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.P))

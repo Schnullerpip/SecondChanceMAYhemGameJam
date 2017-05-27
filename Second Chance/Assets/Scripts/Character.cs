@@ -16,7 +16,7 @@ public class Character : MonoBehaviour {
 
 	public void Die()
 	{
-        print("Player Died!");
+        //print("Player Died!");
 		animator.SetTrigger("die");
 		isAlive = false;	
 		fpsController.enabled = false;
