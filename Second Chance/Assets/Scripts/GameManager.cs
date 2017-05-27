@@ -8,6 +8,8 @@ public class GameManager : Singleton<GameManager> {
     //needed constructor by Singleton class
     protected GameManager() {}
 
+    public AReceiver bla;
+
 
 
 
@@ -32,6 +34,12 @@ public class GameManager : Singleton<GameManager> {
 	// Update is called once per frame
 	void Update ()
 	{
+
+	    if (Input.GetKeyDown("space"))
+	    {
+	        bla.ActOnReceive();
+	    }
+
         if(m_TimeBar && !gameOver)
             gameOver = m_TimeBar.IsGameOver();
 

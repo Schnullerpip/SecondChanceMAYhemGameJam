@@ -36,6 +36,7 @@ public class PrefabSpawner : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 	    current_time += Time.deltaTime;
+	    if (instances.Count == 0) return;
 
 	    if (current_time >= spawn_rythm_in_seconds)
 	    {//spawn a box
