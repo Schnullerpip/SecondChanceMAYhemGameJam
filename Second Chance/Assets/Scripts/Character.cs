@@ -20,5 +20,6 @@ public class Character : MonoBehaviour {
 		animator.SetTrigger("die");
 		isAlive = false;	
 		fpsController.enabled = false;
+		GetComponentInChildren<ObjectGrabber>().DropObject();
 	}
 }
