@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 
     //needed constructor by Singleton class
     protected GameManager() {}
+
+
+
 
     //-------------MEMBER
 
@@ -16,7 +20,7 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] private float m_RemainingTime;
 
     private bool gameOver = false;
-
+    private float restart_time;
 
     //------------METHODS   
 	// Use this for initialization
@@ -28,13 +32,24 @@ public class GameManager : Singleton<GameManager> {
 	// Update is called once per frame
 	void Update ()
 	{
-        if(m_TimeBar)
+        if(m_TimeBar && !gameOver)
             gameOver = m_TimeBar.IsGameOver();
 
         //TODO win lose condition
 	    if (gameOver)
 	    {
-	        //end game
-	    }
+            //end game
+	        if (SceneManager.sceneCount < 2)
+	        {
+	            restart_time = Time.time + 4;
+	            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+	        }
+
+            if (Time.time >= restart_time)
+            {
+                SceneManager.UnloadSceneAsync(1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
 	}
 }

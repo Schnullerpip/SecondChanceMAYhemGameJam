@@ -42,7 +42,10 @@ public class TimeBar : MonoBehaviour
 
         //if time is up -> gameover -> return true
 	    if (millis <= 0)
+	    {
+	        m_Text.text = "0:0";
             return true;
+	    }
 	    return false;
 	}
 }
