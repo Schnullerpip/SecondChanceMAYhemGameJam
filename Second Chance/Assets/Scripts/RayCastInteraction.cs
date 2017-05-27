@@ -62,7 +62,7 @@ public class RayCastInteraction : MonoBehaviour {
 					}
 					else if(selectedObject.CompareTag("Interactable"))
 					{
-                        selectedObject.GetComponent<Sender>().TriggerReceivers();
+                        selectedObject.GetComponent<AInteractable>().Interact();
 					}
 				}
 			}

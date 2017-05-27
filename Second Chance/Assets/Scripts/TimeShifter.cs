@@ -6,11 +6,15 @@ public class TimeShifter : Singleton<TimeShifter> {
 	
 	protected TimeShifter () {} // guarantee this will be always a singleton only - can't use the constructor!
 
-	public float slowDownFactor = 0.1f;
+	public float slomoSpeed = 0.1f;
 
-	public float transitionSpeed = 0.1f;
+	public float transitionSpeed = 1f;
 
 	public float slowmoCompensation = 1;
+
+	private Coroutine coroutine = null;
+
+	public UnityEngine.Audio.AudioMixerGroup slowDownMixerGroup;
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.P))
@@ -25,35 +29,48 @@ public class TimeShifter : Singleton<TimeShifter> {
 
 	public void SlowDown()
 	{
-		StartCoroutine(SlowingDown());
+		if(coroutine != null)
+		{
+			StopCoroutine(coroutine);
+		}
+		coroutine = StartCoroutine(SlowingDown());
 	}
 
 	public void SpeedUp()
 	{
-		StartCoroutine(SpeedingUp());
+		if(coroutine != null)
+		{
+			StopCoroutine(coroutine);
+		}		
+		coroutine = StartCoroutine(SpeedingUp());
 	}
 
 	IEnumerator SlowingDown()
 	{
-		float desiredTimescale = Time.timeScale * slowDownFactor;
+
+		float desiredTimescale = slomoSpeed;
 
 		while(Time.timeScale > desiredTimescale)
 		{
+			slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
 			Time.timeScale -= transitionSpeed * Time.unscaledDeltaTime;
 			Time.fixedDeltaTime = 0.02f * Time.timeScale;
 			slowmoCompensation = 1 / Time.timeScale;
 			yield return new WaitForEndOfFrame();
 		}
 
+		slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
 		Time.timeScale = desiredTimescale;
 	}
 
 	IEnumerator SpeedingUp()
 	{
+
 		float desiredTimescale = 1.0f;
 
 		while(Time.timeScale < desiredTimescale)
 		{
+			slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
 			Time.timeScale += transitionSpeed * Time.unscaledDeltaTime;
 			Time.fixedDeltaTime = 0.02f * Time.timeScale;
 			slowmoCompensation = 1 / Time.timeScale;
@@ -61,7 +78,7 @@ public class TimeShifter : Singleton<TimeShifter> {
 		}
 
 		Time.timeScale = desiredTimescale;
+		slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
 
 	}
-
 }
