@@ -40,6 +40,10 @@ public class LaserSender : MonoBehaviour {
 					particles.transform.position = hit.point;
 					particles.transform.rotation = Quaternion.LookRotation(Vector3.Reflect(direction, hit.normal));
 				}
+				else
+				{
+
+				}
 			}
 
 			//walls, player, laserreceiver and everything else

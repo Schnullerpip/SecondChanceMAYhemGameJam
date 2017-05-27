@@ -514,16 +514,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 54006328510170120, guid: 3c56cddad2edf471ca72abe3b0e9551f,
-        type: 2}
-      propertyPath: m_Mass
-      value: 0.0000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 114015760614496446, guid: 3c56cddad2edf471ca72abe3b0e9551f,
-        type: 2}
-      propertyPath: m_JumpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c56cddad2edf471ca72abe3b0e9551f, type: 2}
   m_IsPrefabParent: 0
@@ -623,7 +613,6 @@ GameObject:
   - component: {fileID: 1152167691}
   - component: {fileID: 1152167690}
   - component: {fileID: 1152167694}
-  - component: {fileID: 1152167695}
   m_Layer: 0
   m_Name: Mirror
   m_TagString: Grabable
@@ -706,42 +695,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1621a372abfbe47bca304d4bb5f3d971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!20 &1152167695
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1152167689}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 0b16d9b11b4f14de5a643d2b59837a70, type: 2}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!1 &1278756331
 GameObject:
   m_ObjectHideFlags: 0
