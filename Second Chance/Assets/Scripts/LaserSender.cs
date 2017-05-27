@@ -35,22 +35,17 @@ public class LaserSender : MonoBehaviour {
 			if(hit.collider.CompareTag("Grabable"))
 			{
 				LaserMirror mirror = hit.collider.GetComponent<LaserMirror>();
-				if(mirror != null)
+				if(mirror == null)
 				{
-					particles.transform.position = hit.point;
-					particles.transform.rotation = Quaternion.LookRotation(Vector3.Reflect(direction, hit.normal));
-				}
-				else
-				{
-
+					PlaceParticles(direction,hit);
+					break;
 				}
 			}
 
 			//walls, player, laserreceiver and everything else
 			else
 			{
-				particles.transform.position = hit.point;
-				particles.transform.rotation = Quaternion.LookRotation(Vector3.Reflect(direction, hit.normal));
+				PlaceParticles(direction,hit);
 
 				if(hit.collider.CompareTag("LaserReceiver"))
 				{
@@ -79,5 +74,11 @@ public class LaserSender : MonoBehaviour {
 		lineRenderer.SetPositions(vertices.ToArray());
 
 		vertices.Clear();
+	}
+
+	void PlaceParticles(Vector3 direction, RaycastHit hit)
+	{
+		particles.transform.position = hit.point;
+		particles.transform.rotation = Quaternion.LookRotation(Vector3.Reflect(direction, hit.normal));
 	}
 }
