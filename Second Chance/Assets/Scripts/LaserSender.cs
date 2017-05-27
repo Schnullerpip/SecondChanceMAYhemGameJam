@@ -9,10 +9,16 @@ public class LaserSender : MonoBehaviour {
 
 	public ParticleSystem particles;
 
+	public float pulseSpeed = 20f;
+	public float deltaPulse = 0.05f;
+
+	private float startWidth;
+
 	void Start () 
 	{
 		lineRenderer = GetComponent<LineRenderer>();
 		vertices = new List<Vector3>();
+		startWidth = lineRenderer.widthMultiplier;
 	}
 	
 	void Update () 
@@ -24,7 +30,16 @@ public class LaserSender : MonoBehaviour {
 		while(Physics.Raycast(position,direction,out hit, 1000))
 		{
 			vertices.Add(hit.point);
-			if(!hit.collider.CompareTag("Mirror"))
+			if(hit.collider.CompareTag("Grabable"))
+			{
+				LaserMirror mirror = hit.collider.GetComponent<LaserMirror>();
+				if(mirror != null)
+				{
+					particles.transform.position = hit.point;
+					particles.transform.rotation = Quaternion.LookRotation(Vector3.Reflect(direction, hit.normal));
+				}
+			}
+			else
 			{
 				particles.transform.position = hit.point;
 				particles.transform.rotation = Quaternion.LookRotation(Vector3.Reflect(direction, hit.normal));
@@ -35,10 +50,14 @@ public class LaserSender : MonoBehaviour {
 				}
 
 				break;
+
 			}
+
 			position = hit.point;
 			direction = Vector3.Reflect(direction, hit.normal);
 		}
+
+		lineRenderer.widthMultiplier = startWidth + Mathf.Sin(Time.time * pulseSpeed) * 0.5f * deltaPulse;
 
 
 		vertices.Insert(0,transform.position);

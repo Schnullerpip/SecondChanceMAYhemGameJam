@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 941209280}
   m_Layer: 0
   m_Name: Mirror (1)
-  m_TagString: Mirror
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -342,7 +342,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f0b824d3631034101b17cf5e315e2162, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -431,6 +431,11 @@ Prefab:
     - target: {fileID: 4791658950568746, guid: 3c56cddad2edf471ca72abe3b0e9551f, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 54006328510170120, guid: 3c56cddad2edf471ca72abe3b0e9551f,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.0000001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c56cddad2edf471ca72abe3b0e9551f, type: 2}
@@ -531,9 +536,10 @@ GameObject:
   - component: {fileID: 1152167691}
   - component: {fileID: 1152167690}
   - component: {fileID: 1152167694}
+  - component: {fileID: 1152167695}
   m_Layer: 0
   m_Name: Mirror
-  m_TagString: Mirror
+  m_TagString: Grabable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -551,7 +557,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f0b824d3631034101b17cf5e315e2162, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -595,13 +601,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1152167689}
-  m_LocalRotation: {x: -0, y: 0.27185744, z: -0, w: 0.96233755}
+  m_LocalRotation: {x: -0, y: 0.9623383, z: -0, w: -0.2718547}
   m_LocalPosition: {x: -3.12, y: 1.51, z: 10.58}
   m_LocalScale: {x: 2.1654656, y: 1, z: 0.21549778}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 31.550001, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 211.549, z: 0}
 --- !u!114 &1152167694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,6 +619,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1621a372abfbe47bca304d4bb5f3d971, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &1152167695
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1152167689}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 0b16d9b11b4f14de5a643d2b59837a70, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!1 &1278756331
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +775,10 @@ Prefab:
     - target: {fileID: 4968043631881466, guid: e0184985fba8c4714bcae0dc409e7f0e, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530078332327472, guid: e0184985fba8c4714bcae0dc409e7f0e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.507
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0184985fba8c4714bcae0dc409e7f0e, type: 2}
@@ -947,6 +993,9 @@ MonoBehaviour:
   slomoSpeed: 0.1
   transitionSpeed: 1
   slowmoCompensation: 1
+  slowmoCompensationFactor: 0.75
+  slowDownMixerGroup: {fileID: 243220895925960698, guid: 3447432eeabee460d99006d99aa8396a,
+    type: 2}
 --- !u!4 &1583195227
 Transform:
   m_ObjectHideFlags: 0

@@ -11,10 +11,18 @@ public class TimeShifter : Singleton<TimeShifter> {
 	public float transitionSpeed = 1f;
 
 	public float slowmoCompensation = 1;
+	[Range(0,1)]
+	public float slowmoCompensationFactor = 0.75f;
 
 	private Coroutine coroutine = null;
+	private float startFixedDeltaTime;
 
 	public UnityEngine.Audio.AudioMixerGroup slowDownMixerGroup;
+
+	void Awake()
+	{
+		startFixedDeltaTime = Time.fixedDeltaTime;
+	}
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.P))
@@ -52,15 +60,13 @@ public class TimeShifter : Singleton<TimeShifter> {
 
 		while(Time.timeScale > desiredTimescale)
 		{
-			slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
 			Time.timeScale -= transitionSpeed * Time.unscaledDeltaTime;
-			Time.fixedDeltaTime = 0.02f * Time.timeScale;
-			slowmoCompensation = 1 / Time.timeScale;
+			AdjustSloMo();
 			yield return new WaitForEndOfFrame();
 		}
 
-		slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
 		Time.timeScale = desiredTimescale;
+		AdjustSloMo();
 	}
 
 	IEnumerator SpeedingUp()
@@ -70,15 +76,19 @@ public class TimeShifter : Singleton<TimeShifter> {
 
 		while(Time.timeScale < desiredTimescale)
 		{
-			slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
 			Time.timeScale += transitionSpeed * Time.unscaledDeltaTime;
-			Time.fixedDeltaTime = 0.02f * Time.timeScale;
-			slowmoCompensation = 1 / Time.timeScale;
+			AdjustSloMo();
 			yield return new WaitForEndOfFrame();
 		}
 
 		Time.timeScale = desiredTimescale;
-		slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
+		AdjustSloMo();
+	}
 
+	void AdjustSloMo()
+	{
+		Time.fixedDeltaTime = startFixedDeltaTime * Time.timeScale;
+		slowDownMixerGroup.audioMixer.SetFloat("pitch",Time.timeScale);
+		slowmoCompensation = Mathf.Lerp(1, (1/Time.timeScale)*slowmoCompensationFactor, Mathf.InverseLerp(1,slomoSpeed,Time.timeScale));
 	}
 }
