@@ -21,5 +21,6 @@ public class Character : MonoBehaviour {
 		isAlive = false;	
 		fpsController.enabled = false;
 		GetComponentInChildren<ObjectGrabber>().DropObject();
+		TimeShifter.Instance.SpeedUp();
 	}
 }
