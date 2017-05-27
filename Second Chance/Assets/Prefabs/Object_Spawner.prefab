@@ -92,5 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33bc4250ea2ae74c9cfedabeb625b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objects: []
+  objects:
+  - {fileID: 1677573125541888, guid: a63f53f738d64d841bebf7c77cb5641b, type: 2}
+  - {fileID: 1297932734798458, guid: d4371bab261b242ddba3448e6925f0e4, type: 2}
   spawn_rythm: 2
