@@ -27,15 +27,15 @@ public class LaserSender : MonoBehaviour {
 		Vector3 direction = transform.forward;
 		Vector3 position = transform.position;
 
-		while(Physics.Raycast(position,direction,out hit, 1000))
+		while(Physics.Raycast(position,direction,out hit, 1000, -1, QueryTriggerInteraction.Ignore))
 		{
 			vertices.Add(hit.point);
 
 			//Mirrors and other grabable stuff
 			if(hit.collider.CompareTag("Grabable"))
 			{
-				LaserMirror mirror = hit.collider.GetComponent<LaserMirror>();
-				if(mirror == null)
+				LaserMirror mirror = hit.collider.GetComponentInChildren<LaserMirror>(false);
+				if(mirror == null || !mirror.isReflective)
 				{
 					PlaceParticles(direction,hit);
 					break;
