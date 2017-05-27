@@ -22,8 +22,11 @@ public class ObjectGrabber : MonoBehaviour {
 
 	public void DropObject()
 	{
-		grabbedObject.velocity /= TimeShifter.Instance.slowmoCompensation;
-		grabbedObject = null;
+		if(grabbedObject != null)
+		{
+			grabbedObject.velocity /= TimeShifter.Instance.slowmoCompensation;
+			grabbedObject = null;
+		}
 	}
 
 	public bool IsHoldingObject()

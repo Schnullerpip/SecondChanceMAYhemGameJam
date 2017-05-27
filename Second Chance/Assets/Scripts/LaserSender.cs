@@ -13,6 +13,7 @@ public class LaserSender : MonoBehaviour {
 	public float deltaPulse = 0.05f;
 
 	private float startWidth;
+	public bool isOn = true;
 
 	void Start () 
 	{
@@ -20,9 +21,25 @@ public class LaserSender : MonoBehaviour {
 		vertices = new List<Vector3>();
 		startWidth = lineRenderer.widthMultiplier;
 	}
-	
+
+	public void Activate(bool isOn)
+	{
+		this.isOn = isOn;
+
+		lineRenderer.enabled = isOn;
+		particles.gameObject.SetActive(isOn);
+	}
+
 	void Update () 
 	{
+		if(Input.GetKeyDown(KeyCode.H))
+		{
+			Activate(!isOn);
+		}
+
+		if(!isOn)
+			return;
+		
 		RaycastHit hit;
 		Vector3 direction = transform.forward;
 		Vector3 position = transform.position;

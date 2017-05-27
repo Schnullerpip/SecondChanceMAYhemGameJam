@@ -16,6 +16,11 @@ public class MirrorMounting : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
+		if(!this.enabled)
+		{
+			return;
+		}
+
 		if(other.CompareTag("Grabable"))
 		{
 			LaserMirror mirror = other.GetComponent<LaserMirror>();
@@ -37,6 +42,8 @@ public class MirrorMounting : MonoBehaviour {
 				StartCoroutine(Attach(t,mirror));
 
 				t.GetComponent<Rigidbody>().isKinematic = true;
+
+				this.enabled = false;
 			}
 		}
 	}
