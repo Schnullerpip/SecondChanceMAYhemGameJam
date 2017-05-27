@@ -21,6 +21,7 @@ public class ObjectGrabber : MonoBehaviour {
 	{
 //		grabbedObject.isKinematic = false;
 //		grabbedObject.mass = mass;
+		grabbedObject.velocity /= TimeShifter.Instance.slowmoCompensation;
 		grabbedObject = null;
 	}
 
@@ -37,7 +38,7 @@ public class ObjectGrabber : MonoBehaviour {
 
 
 
-			grabbedObject.velocity = (desiredPos - grabbedObject.position) * 10;
+			grabbedObject.velocity = (desiredPos - grabbedObject.position) * 10 * TimeShifter.Instance.slowmoCompensation;
 			grabbedObject.angularVelocity = Vector3.zero;
 //			grabbedObject.MovePosition(transform.position + transform.forward * holdingDistance);
 			grabbedObject.MoveRotation(transform.rotation);
