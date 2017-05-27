@@ -54,7 +54,7 @@ public class GameManager : Singleton<GameManager> {
 	            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
 	        }
 
-            if (Time.time >= restart_time)
+            if (Time.unscaledTime >= restart_time)
             {
                 SceneManager.UnloadSceneAsync(1);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
