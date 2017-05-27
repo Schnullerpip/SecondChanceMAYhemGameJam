@@ -50,7 +50,7 @@ public class GameManager : Singleton<GameManager> {
             //end game
 	        if (SceneManager.sceneCount < 2)
 	        {
-	            restart_time = Time.unscaledTime + 2;
+	            restart_time = Time.unscaledTime + 1;
 	            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
 	        }
 
