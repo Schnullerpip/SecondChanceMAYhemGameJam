@@ -8,6 +8,9 @@ public class GameManager : Singleton<GameManager> {
     //needed constructor by Singleton class
     protected GameManager() {}
 
+
+
+
     //-------------MEMBER
 
     //the visual feedback for the player
@@ -17,6 +20,7 @@ public class GameManager : Singleton<GameManager> {
     [SerializeField] private float m_RemainingTime;
 
     private bool gameOver = false;
+    private float restart_time;
 
     //------------METHODS   
 	// Use this for initialization
@@ -34,9 +38,18 @@ public class GameManager : Singleton<GameManager> {
         //TODO win lose condition
 	    if (gameOver)
 	    {
-	        //end game
-            if(SceneManager.sceneCount < 2)
-                SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
-	    }
+            //end game
+	        if (SceneManager.sceneCount < 2)
+	        {
+	            restart_time = Time.time + 4;
+	            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+	        }
+
+            if (Time.time >= restart_time)
+            {
+                SceneManager.UnloadSceneAsync(1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
 	}
 }
