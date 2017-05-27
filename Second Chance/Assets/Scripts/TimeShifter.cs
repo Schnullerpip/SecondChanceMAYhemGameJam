@@ -61,7 +61,5 @@ public class TimeShifter : Singleton<TimeShifter> {
 		}
 
 		Time.timeScale = desiredTimescale;
-
 	}
-
 }
