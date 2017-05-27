@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager> {
     //-------------MEMBER
 
     //the visual feedback for the player
-    [SerializeField] private TimeBar m_TimeBar;
+    private TimeBar m_TimeBar;
 
     //initial remaining time - only fetched from editor to give to the timebar
     [SerializeField] private float m_RemainingTime;
@@ -26,7 +26,9 @@ public class GameManager : Singleton<GameManager> {
 
     //------------METHODS   
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+	    m_TimeBar = FindObjectOfType<TimeBar>();
         if(m_TimeBar)
             m_TimeBar.Init(m_RemainingTime);
 
