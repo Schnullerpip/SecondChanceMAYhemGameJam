@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: b76d3c25d375ad543be7e264ce9d05e6
-timeCreated: 1495878142
+guid: 64b09c78359a2254a990885bbdc5745e
+timeCreated: 1495903108
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -17,7 +17,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 1
     externalNormalMap: 0
-    heightScale: 0.013
+    heightScale: 0.017
     normalMapFilter: 1
   isReadable: 0
   grayScaleToAlpha: 0
@@ -27,8 +27,8 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 2
+    aniso: 16
     mipBias: -1
     wrapMode: -1
   nPOTScale: 1
