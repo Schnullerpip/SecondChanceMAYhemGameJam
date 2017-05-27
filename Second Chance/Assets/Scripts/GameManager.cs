@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 
@@ -17,7 +18,6 @@ public class GameManager : Singleton<GameManager> {
 
     private bool gameOver = false;
 
-
     //------------METHODS   
 	// Use this for initialization
 	void Start () {
@@ -28,13 +28,15 @@ public class GameManager : Singleton<GameManager> {
 	// Update is called once per frame
 	void Update ()
 	{
-        if(m_TimeBar)
+        if(m_TimeBar && !gameOver)
             gameOver = m_TimeBar.IsGameOver();
 
         //TODO win lose condition
 	    if (gameOver)
 	    {
 	        //end game
+            if(SceneManager.sceneCount < 2)
+                SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
 	    }
 	}
 }
