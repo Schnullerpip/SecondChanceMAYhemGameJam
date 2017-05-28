@@ -228,6 +228,26 @@ Prefab:
       propertyPath: AReceivers.Array.data[1]
       value: 
       objectReference: {fileID: 1082688827}
+    - target: {fileID: 135436047811173610, guid: a63f53f738d64d841bebf7c77cb5641b,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.01684061
+      objectReference: {fileID: 0}
+    - target: {fileID: 135436047811173610, guid: a63f53f738d64d841bebf7c77cb5641b,
+        type: 2}
+      propertyPath: m_Center.z
+      value: -0.007965957
+      objectReference: {fileID: 0}
+    - target: {fileID: 135436047811173610, guid: a63f53f738d64d841bebf7c77cb5641b,
+        type: 2}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82469410363765554, guid: a63f53f738d64d841bebf7c77cb5641b,
+        type: 2}
+      propertyPath: MinDistance
+      value: 0.973608
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a63f53f738d64d841bebf7c77cb5641b, type: 2}
   m_IsPrefabParent: 0
@@ -1362,22 +1382,22 @@ Prefab:
     - target: {fileID: 224359513995071520, guid: a79a55bba2bfb104994152761fa7f2b2,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -6.47
+      value: -6.71
       objectReference: {fileID: 0}
     - target: {fileID: 224359513995071520, guid: a79a55bba2bfb104994152761fa7f2b2,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 4.95
+      value: 5.87
       objectReference: {fileID: 0}
     - target: {fileID: 224359513995071520, guid: a79a55bba2bfb104994152761fa7f2b2,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 6
+      value: 698.72
       objectReference: {fileID: 0}
     - target: {fileID: 224359513995071520, guid: a79a55bba2bfb104994152761fa7f2b2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 2
+      value: 308.47
       objectReference: {fileID: 0}
     - target: {fileID: 224359513995071520, guid: a79a55bba2bfb104994152761fa7f2b2,
         type: 2}
