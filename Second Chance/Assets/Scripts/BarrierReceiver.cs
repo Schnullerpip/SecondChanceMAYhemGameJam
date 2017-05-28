@@ -7,13 +7,20 @@ public class BarrierReceiver : AReceiver
 
     private Animator m_Animator;
     private bool isOpen = true;
+    [SerializeField]
+    public bool one_timer = false;
+    private bool has_striggered = false;
 
     protected override void ReceiverBehaviour()
     {
         if (m_Animator)
         {
-            m_Animator.SetBool("close", isOpen);
-            isOpen = !isOpen;
+            if (one_timer && !has_striggered || !one_timer)
+            {
+                m_Animator.SetBool("close", isOpen);
+                isOpen = !isOpen;
+                has_striggered = true;
+            }
         }
     }
 
