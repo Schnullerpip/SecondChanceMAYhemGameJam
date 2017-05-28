@@ -403,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AReceivers:
   - {fileID: 1913404860}
+  - {fileID: 1539578616}
 --- !u!23 &873603849
 MeshRenderer:
   m_ObjectHideFlags: 0

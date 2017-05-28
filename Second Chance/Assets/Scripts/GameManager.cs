@@ -7,6 +7,8 @@ public class GameManager : Singleton<GameManager> {
 
     //needed constructor by Singleton class
     protected GameManager() {}
+    private const string game_over_scene_name = "Game_Over_Scene";
+    private const string game_won_scene_name = "Game_Won_Scene";
 
 
 
@@ -48,17 +50,30 @@ public class GameManager : Singleton<GameManager> {
 	    {
 
             //end game
-	        if (SceneManager.sceneCount < 2)
+	        if (SceneManager.sceneCount < 2)//so game_over_scene is only loaded once
 	        {
 	            restart_time = Time.unscaledTime + 1;
-	            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+	            SceneManager.LoadSceneAsync(game_over_scene_name, LoadSceneMode.Additive);
 	        }
 
             if (Time.unscaledTime >= restart_time)
             {
-                SceneManager.UnloadSceneAsync(1);
+                SceneManager.UnloadSceneAsync(game_over_scene_name);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
 	}
+
+    public void WinRoutine()
+    {
+        SceneManager.LoadSceneAsync(game_won_scene_name, LoadSceneMode.Additive);//the game_won_scene
+        StartCoroutine(LoadNextLevel());
+    }
+
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        SceneManager.UnloadSceneAsync(game_won_scene_name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
