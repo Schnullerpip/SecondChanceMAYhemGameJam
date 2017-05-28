@@ -11,6 +11,8 @@ public class Swing : MonoBehaviour {
 
 	public Axis axis;
 
+	private AudioSource audioSource;
+
 	public enum Axis 
 	{
 		X,Y,Z
@@ -18,7 +20,9 @@ public class Swing : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		audioSource = GetComponent<AudioSource>();
+		audioSource.pitch = speed / 6.4f;
+		audioSource.time += offset;
 	}
 	
 	// Update is called once per frame

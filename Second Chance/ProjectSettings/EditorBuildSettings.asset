@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/title.unity
+    guid: 2c43c573765594e539b174b0006f2270
+  - enabled: 1
     path: Assets/Scenes/Levelprototype_1.unity
     guid: a464af593c82dd44780229c3d202f2b7
   - enabled: 1
@@ -20,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_Won_Scene.unity
     guid: 273a7d03be52b0a4aa694fbdcc6dd482
+  - enabled: 1
+    path: Assets/Scenes/LevelRotorLasersBox.unity
+    guid: 8d26d4d23b8e7124aa63f57e7b3fb490
