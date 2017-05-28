@@ -83,6 +83,14 @@ public class LaserSender : MonoBehaviour {
 
 		lineRenderer.widthMultiplier = startWidth + Mathf.Sin(Time.time * pulseSpeed) * 0.5f * deltaPulse;
 
+		if(vertices.Count == 0)
+		{
+			RaycastHit fakeHit = new RaycastHit();
+			fakeHit.normal = -direction;
+			fakeHit.point = position+direction*500;
+			vertices.Add(fakeHit.point);
+			PlaceParticles(direction, fakeHit);
+		}
 
 		vertices.Insert(0,transform.position);
 		lineRenderer.enabled = true;
