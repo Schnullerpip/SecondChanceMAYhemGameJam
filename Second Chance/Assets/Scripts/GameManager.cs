@@ -41,6 +41,12 @@ public class GameManager : Singleton<GameManager> {
 	// Update is called once per frame
 	void Update ()
 	{
+
+	    if (Input.GetKeyDown(KeyCode.U))
+	    {
+	        WinRoutine();
+	    }
+
         if(m_TimeBar && !ran_out_of_time)
             ran_out_of_time = m_TimeBar.IsGameOver();
 
