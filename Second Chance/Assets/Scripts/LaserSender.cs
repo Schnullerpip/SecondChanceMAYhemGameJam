@@ -79,6 +79,11 @@ public class LaserSender : MonoBehaviour {
 
 			position = hit.point;
 			direction = Vector3.Reflect(direction, hit.normal);
+
+			if(vertices.Count > 202)
+			{
+				break;
+			}
 		}
 
 		lineRenderer.widthMultiplier = startWidth + Mathf.Sin(Time.time * pulseSpeed) * 0.5f * deltaPulse;
