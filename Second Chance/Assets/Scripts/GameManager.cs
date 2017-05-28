@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager> {
     private TimeBar m_TimeBar;
 
     //initial remaining time - only fetched from editor to give to the timebar
+	[Tooltip("In Milliseconds")]
     [SerializeField] private float m_RemainingTime;
 
     private bool ran_out_of_time = false, player_is_alive = true;

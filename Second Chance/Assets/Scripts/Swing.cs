@@ -24,7 +24,7 @@ public class Swing : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		Vector3 euler = transform.rotation.eulerAngles;
+		Vector3 euler = transform.localRotation.eulerAngles;
 
 		switch (axis) {
 		case Axis.X:
@@ -40,7 +40,7 @@ public class Swing : MonoBehaviour {
 			throw new System.ArgumentOutOfRangeException ();
 		}
 
-		transform.rotation = Quaternion.Euler(euler * amount);
+		transform.localRotation = Quaternion.Euler(euler * amount);
 
 	}
 }
