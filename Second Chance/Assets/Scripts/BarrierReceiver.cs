@@ -10,8 +10,11 @@ public class BarrierReceiver : AReceiver
 
     protected override void ReceiverBehaviour()
     {
-        m_Animator.SetBool("close", isOpen);
-        isOpen = !isOpen;
+        if (m_Animator)
+        {
+            m_Animator.SetBool("close", isOpen);
+            isOpen = !isOpen;
+        }
     }
 
 	// Use this for initialization
