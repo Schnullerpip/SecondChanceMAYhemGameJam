@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 198557106158667176}
-  pulseSpeed: 20
+  pulseSpeed: 30
   deltaPulse: 0.05
   isOn: 1
 --- !u!120 &120452925747691418

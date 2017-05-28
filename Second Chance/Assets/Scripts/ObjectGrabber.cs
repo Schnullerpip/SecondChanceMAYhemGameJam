@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectGrabber : MonoBehaviour {
 
 	public float holdingDistance;
-	public float movementForce = 10.0f;
+	public float throwingVelocity = 10;
 
 	private Rigidbody grabbedObject;
 
@@ -25,6 +25,7 @@ public class ObjectGrabber : MonoBehaviour {
 		if(grabbedObject != null)
 		{
 			grabbedObject.velocity /= TimeShifter.Instance.slowmoCompensation;
+			grabbedObject.velocity = Vector3.ClampMagnitude(grabbedObject.velocity,throwingVelocity);
 			grabbedObject = null;
 		}
 	}
@@ -38,13 +39,18 @@ public class ObjectGrabber : MonoBehaviour {
 	{
 		if(grabbedObject != null)
 		{
+
+			if(Input.GetButtonDown("Fire1"))
+			{
+				grabbedObject.velocity = transform.forward * throwingVelocity * TimeShifter.Instance.slowmoCompensation;
+				DropObject();
+				return;
+			}
+
 			Vector3 desiredPos = transform.position + transform.forward * holdingDistance;
-
-
 
 			grabbedObject.velocity = (desiredPos - grabbedObject.position) * 10 * TimeShifter.Instance.slowmoCompensation;
 			grabbedObject.angularVelocity = Vector3.zero;
-//			grabbedObject.MovePosition(transform.position + transform.forward * holdingDistance);
 			grabbedObject.transform.rotation = Quaternion.RotateTowards(grabbedObject.transform.rotation,transform.rotation, 720*Time.unscaledDeltaTime);
 		}
 	}
