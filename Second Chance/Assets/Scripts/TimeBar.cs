@@ -24,11 +24,13 @@ public class TimeBar : AReceiver
     //returns true if time is up!
 	public bool IsGameOver ()
 	{
-        //not counting yet
-	    if (ReceivedNTimes() == 0) return false;
+        //not counting if first receive ddnt come yet
+	    if (ReceivedNTimes() > 0)
+	    {
+            //calculate new remaining tiem
+            m_RemainingTime -= Time.deltaTime*1000;
+	    }
 
-        //calculate new remaining tiem
-	    m_RemainingTime -= Time.deltaTime*1000;
 	    float seconds = 0, millis = 0;
 
         //separate into seconds and milliseconds, so it can be drawn on the canvas in the format -> ss:mm
@@ -41,7 +43,7 @@ public class TimeBar : AReceiver
 	    m_Text.text = "" + (int)seconds + ":" + (int)millis;
 
         //if time is up -> gameover -> return true
-	    if (millis <= 0)
+	    if (millis <= 0 && seconds == 0)
 	    {
 	        m_Text.text = "0:0";
             return true;
