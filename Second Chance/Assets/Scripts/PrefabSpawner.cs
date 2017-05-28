@@ -9,6 +9,7 @@ public class PrefabSpawner : MonoBehaviour
     [SerializeField] private List<GameObject> prefabs;
 
     [SerializeField] private float spawn_rythm_in_seconds;
+    [SerializeField] private float spawn_velocity = 1;
 
     private List<List<GameObject>> instances = new List<List<GameObject>>();
 
@@ -56,10 +57,9 @@ public class PrefabSpawner : MonoBehaviour
             Rigidbody rb = pool[current_item_idx].GetComponent<Rigidbody>();
 
             rb.angularVelocity = new Vector3(0, 0, 0);
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.velocity = -transform.up * spawn_velocity;
             pool[current_item_idx].transform.rotation = Quaternion.identity;
             pool[current_item_idx].transform.position = transform.position;
-            pool[current_item_idx].GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             pool[current_item_idx].SetActive(true);
             m_AudioSource.Play();
 
