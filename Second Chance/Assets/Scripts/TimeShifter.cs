@@ -9,7 +9,7 @@ public class TimeShifter : Singleton<TimeShifter> {
 
 	public float slomoSpeed = 0.1f;
 
-	public float transitionSpeed = 1f;
+	public float transitionSpeed = 2f;
 
 	public float slowmoCompensation = 1;
 	[Range(0,1)]
