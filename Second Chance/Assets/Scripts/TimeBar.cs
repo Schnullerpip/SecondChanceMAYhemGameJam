@@ -54,6 +54,9 @@ public class TimeBar : AReceiver
     protected override void ReceiverBehaviour()
     {
         if (ReceivedNTimes() == 2)
+        {  
+            TimeShifter.Instance.SpeedUp();
             Destroy(this);
+        }
     }
 }
