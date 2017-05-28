@@ -1708,25 +1708,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0184985fba8c4714bcae0dc409e7f0e, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &910793963 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1311897169667752, guid: a63f53f738d64d841bebf7c77cb5641b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1712854740}
---- !u!64 &910793967
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 910793963}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: c52cab205b4083843aca5e15343d464e, type: 3}
 --- !u!1001 &983621123
 Prefab:
   m_ObjectHideFlags: 0
@@ -2041,23 +2022,6 @@ MeshCollider:
   m_InflateMesh: 1
   m_SkinWidth: 0.1
   m_Mesh: {fileID: 4300000, guid: 004f45f395ea94b87b2ffa190f119e7e, type: 3}
---- !u!1 &1256818301 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1091015377744504, guid: a63f53f738d64d841bebf7c77cb5641b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1712854740}
---- !u!65 &1256818305
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1256818301}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.010000003, y: 0.01, z: 0.010000003}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1261152084 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4901102754233378, guid: f7399e07a5deb4942b51991f952cc504,
@@ -3143,11 +3107,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114849514483015574, guid: a63f53f738d64d841bebf7c77cb5641b,
-        type: 2}
-      propertyPath: AReceivers.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4059980140313976, guid: a63f53f738d64d841bebf7c77cb5641b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 9.940142
@@ -3180,10 +3139,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4059980140313976, guid: a63f53f738d64d841bebf7c77cb5641b, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.00001
-      objectReference: {fileID: 0}
     - target: {fileID: 114849514483015574, guid: a63f53f738d64d841bebf7c77cb5641b,
         type: 2}
       propertyPath: AReceivers.Array.data[0]
@@ -3194,21 +3149,6 @@ Prefab:
       propertyPath: AReceivers.Array.data[1]
       value: 
       objectReference: {fileID: 749744315}
-    - target: {fileID: 23009308166460626, guid: a63f53f738d64d841bebf7c77cb5641b,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 135436047811173610, guid: a63f53f738d64d841bebf7c77cb5641b,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 135436047811173610, guid: a63f53f738d64d841bebf7c77cb5641b,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a63f53f738d64d841bebf7c77cb5641b, type: 2}
   m_IsPrefabParent: 0
