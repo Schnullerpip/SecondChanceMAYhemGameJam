@@ -338,6 +338,86 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 198736152651130416, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: randomSeed
+      value: -713281968
+      objectReference: {fileID: 0}
+    - target: {fileID: 198736152651130416, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198736152651130416, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198736152651130416, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198736152651130416, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198575363545342778, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1899130246
+      objectReference: {fileID: 0}
+    - target: {fileID: 198575363545342778, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198575363545342778, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198043144302685134, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1135630761
+      objectReference: {fileID: 0}
+    - target: {fileID: 198043144302685134, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198043144302685134, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198088771011536140, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1158202841
+      objectReference: {fileID: 0}
+    - target: {fileID: 198088771011536140, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198088771011536140, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198088771011536140, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198088771011536140, guid: da471b10019044bcebfc9317329b9a72,
+        type: 2}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da471b10019044bcebfc9317329b9a72, type: 2}
   m_IsPrefabParent: 0
