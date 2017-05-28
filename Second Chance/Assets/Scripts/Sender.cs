@@ -18,11 +18,4 @@ public class Sender : MonoBehaviour
             t.ActOnReceive();
         }
     }
-
-
-    //INHERITED METHODS
-	// Use this for initialization
-	void Start () {}
-	// Update is called once per frame
-	void Update () {}
 }

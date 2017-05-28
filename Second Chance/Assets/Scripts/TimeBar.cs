@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimeBar : MonoBehaviour
+public class TimeBar : AReceiver
 {
 
     //time remaining
@@ -48,4 +48,9 @@ public class TimeBar : MonoBehaviour
 	    }
 	    return false;
 	}
+
+    public override void ActOnReceive()
+    {
+        Destroy(this);
+    }
 }
