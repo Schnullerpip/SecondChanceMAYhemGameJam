@@ -66,7 +66,7 @@ public class TimeShifter : Singleton<TimeShifter> {
 
 		while(Time.timeScale > desiredTimescale)
 		{
-			Time.timeScale -= transitionSpeed * Time.unscaledDeltaTime;
+			Time.timeScale = Mathf.Clamp(Time.timeScale - (transitionSpeed * Time.unscaledDeltaTime), 0, 100);
 			AdjustSloMo();
 			yield return new WaitForEndOfFrame();
 		}
@@ -82,7 +82,7 @@ public class TimeShifter : Singleton<TimeShifter> {
 
 		while(Time.timeScale < desiredTimescale)
 		{
-			Time.timeScale += transitionSpeed * Time.unscaledDeltaTime;
+			Time.timeScale = Mathf.Clamp(Time.timeScale + (transitionSpeed * Time.unscaledDeltaTime), 0, 100);
 			AdjustSloMo();
 			yield return new WaitForEndOfFrame();
 		}

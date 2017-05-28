@@ -210,7 +210,8 @@ AudioSource:
   m_GameObject: {fileID: 1207671339420286}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243220895925960698, guid: 3447432eeabee460d99006d99aa8396a,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -472,6 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
+  deathSFX: {fileID: 8300000, guid: dcb02b85b727a42d9b9470c47dfac9fe, type: 3}
 --- !u!114 &114682308868497230
 MonoBehaviour:
   m_ObjectHideFlags: 1

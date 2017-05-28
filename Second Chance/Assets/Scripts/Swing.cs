@@ -22,7 +22,7 @@ public class Swing : MonoBehaviour {
 	void Start () {
 		audioSource = GetComponent<AudioSource>();
 		audioSource.pitch = speed / 6.4f;
-		audioSource.time += offset;
+		audioSource.time += offset / 8;
 	}
 	
 	// Update is called once per frame
