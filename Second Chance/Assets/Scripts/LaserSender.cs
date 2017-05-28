@@ -32,11 +32,6 @@ public class LaserSender : MonoBehaviour {
 
 	void Update () 
 	{
-		if(Input.GetKeyDown(KeyCode.H))
-		{
-			Activate(!isOn);
-		}
-
 		if(!isOn)
 			return;
 		
