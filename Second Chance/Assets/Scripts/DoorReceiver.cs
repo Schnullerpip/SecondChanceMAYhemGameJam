@@ -10,7 +10,7 @@ public class DoorReceiver : AReceiver
     private Animator m_Animator;
 
     //METHODS
-    public override void ActOnReceive()
+    protected override void ReceiverBehaviour()
     {
         m_Animator.SetBool("shouldOpen", true);
     }

@@ -8,7 +8,7 @@ public class BarrierReceiver : AReceiver
     private Animator m_Animator;
     private bool isOpen = true;
 
-    public override void ActOnReceive()
+    protected override void ReceiverBehaviour()
     {
         m_Animator.SetBool("close", isOpen);
         isOpen = !isOpen;

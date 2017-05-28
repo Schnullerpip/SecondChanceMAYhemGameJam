@@ -16,9 +16,6 @@ public class TimeBar : AReceiver
 	    m_Text = gameObject.GetComponentInChildren<Text>();
 	}
 
-    // Update is called once per frame
-    void Update() {}
-
     public void Init(float initial_remaining_time)
     {
         m_RemainingTime = initial_remaining_time;
@@ -27,6 +24,9 @@ public class TimeBar : AReceiver
     //returns true if time is up!
 	public bool IsGameOver ()
 	{
+        //not counting yet
+	    if (ReceivedNTimes() == 0) return false;
+
         //calculate new remaining tiem
 	    m_RemainingTime -= Time.deltaTime*1000;
 	    float seconds = 0, millis = 0;
@@ -49,8 +49,9 @@ public class TimeBar : AReceiver
 	    return false;
 	}
 
-    public override void ActOnReceive()
+    protected override void ReceiverBehaviour()
     {
-        Destroy(this);
+        if (ReceivedNTimes() == 2)
+            Destroy(this);
     }
 }

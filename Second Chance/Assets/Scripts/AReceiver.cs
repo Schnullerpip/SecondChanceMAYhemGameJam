@@ -4,6 +4,18 @@ using UnityEngine;
 
 public abstract class AReceiver : MonoBehaviour
 {
+    private int receiveCounter = 0;
+    public int ReceivedNTimes()
+    {
+        return receiveCounter;
+    }
+
+    public void ActOnReceive()
+    {
+        ++receiveCounter;
+        ReceiverBehaviour();
+    }
+
     //the generic method that is trigered by a receiver, that knows this receiver
-    public abstract void ActOnReceive();
+    protected abstract void ReceiverBehaviour();
 }
