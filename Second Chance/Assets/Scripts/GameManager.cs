@@ -49,6 +49,7 @@ public class GameManager : Singleton<GameManager> {
 
 	    if (ran_out_of_time || !player_is_alive)
 	    {
+            TimeShifter.Instance.SpeedUp();
 
             //end game
 	        if (SceneManager.sceneCount < 2)//so game_over_scene is only loaded once
